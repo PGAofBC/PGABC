@@ -627,6 +627,15 @@ body::after {
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--muted);
 }
+.draw-hole-contest {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--black);
+  background: var(--acid);
+  padding: 0.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
 .draw-tee-block {
   padding: 1rem 1.5rem;
   border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -1383,31 +1392,31 @@ const DATA = {
   'sponsor-h1':{type:'sponsor',tag:'Sponsor',label:'Hole 1',img:IMGS.hole1,hole:'Hole 1 · Opening Tee',title:'Rampion Enterprises Ltd.',desc:"Kick off your round with Rampion Enterprises Ltd. at the first tee! The team will be on hand all day — take a moment to say hello before you stripe it down the fairway.",hl:['👋 Rampion team on-site at the opening tee','🏆 Find out what Rampion can do for you'],tip:'Best way to start a round — with a handshake!',sponsor:'',logo:LOGOS.rampion},
   'sponsor-h6':{type:'sponsor',tag:'Sponsor',label:'Hole 6',img:IMGS.hole6,hole:'Hole 6 · Parking Lot Corridor',title:'Wolfe Jack Supply Co.',desc:"Rolling through Hole 6? The Wolfe Jack Supply Co. crew is out here and they brought the energy! Swing by and get to know one of today's fantastic sponsors.",hl:['🎉 Wolfe Jack Supply Co. — Hole 6 Sponsor','😄 Stop by — they would love to meet you!'],tip:'Mid-round energy boost — delivered!',sponsor:'',logo:LOGOS.wolfe_jack},
   'sponsor-h16':{type:'sponsor',tag:'Sponsor',label:'Hole 16',img:IMGS.hole16,hole:'Hole 16 · Clubhouse View',title:'Engel & Volkers',desc:"Heading into the home stretch? Stop and say hi to the Engel & Volkers team at Hole 16! Whether curious about real estate or just want a friendly face on the back nine, they're here.",hl:['🏡 Engel & Volkers — Premium real estate','📍 Find them at the Hole 16 fairway'],tip:'Home stretch — finish strong and say hello!',sponsor:'',logo:LOGOS.gg_brands_logo},
-  'contest-h1':{type:'contest',tag:'Contest',label:'Hole 1',img:IMGS.h1_contest,hole:'Hole 1',title:'🎯 Straightest Drive',sponsor:'Supported by Rampion Ent. Ltd',desc:"Think you can split the fairway? Hole 1 kicks off the fun with the Straightest Drive contest! Accuracy is everything here — power takes a back seat. May the straightest hitter win!",hl:['🎯 Closest to the centre line wins','📏 Measured from the fairway center'],tip:'Pick a target, stay smooth, trust your swing.',logo:LOGOS.rampion},
-  'contest-h4':{type:'contest',tag:'Contest',label:'Hole 4',img:IMGS.h4_contest,hole:'Hole 4',title:'KP — Donation for Junior Golf',sponsor:'Supported by PGA of BC',desc:'Every great shot on Hole 4 helps grow the next generation of golfers! $5 per shot — 50% goes to junior golf and 50% goes to the KP winner. Take as many shots as you want!',hl:['💰 $5 per shot — 50% junior golf, 50% KP winner','🔁 Take as many shots as you want','📋 Proceeds support BC junior golf','📍 Closest to the pin wins'],tip:'Give back and fire at the flag!',logo:LOGOS.pga_bc_logo},
-  'contest-h6':{type:'contest',tag:'Contest',label:'Hole 6',img:IMGS.h6_contest,hole:'Hole 6',title:'🍡 Marshmallow Long Drive',sponsor:'Supported by Wolfe Jack Supply Co.',desc:'Swap your ball for a marshmallow and let it fly! Grip it, rip it, see how far your fluffy projectile travels. Marshmallow provided — furthest in the fairway wins!',hl:['🍡 Marshmallow provided on-site','😂 Furthest in the fairway wins'],tip:'Warning: marshmallows may attract wildlife.',logo:LOGOS.wolfe_jack},
-  'contest-h8':{type:'contest',tag:'Contest',label:'Hole 8',img:IMGS.h8_contest,hole:'Hole 8',title:'🪵 Hickory Club Challenge',sponsor:'Supported by BC Golf House Society',desc:'Put down the modern gear and pick up a classic hickory club — the same kind the legends of golf once played with. KP contest using hickory clubs provided on-site.',hl:['🪵 Hickory clubs provided on-site','🎯 KP contest using hickory clubs'],tip:'Finesse beats force every time.',logo:LOGOS.bc_golf},
-  'contest-h11':{type:'contest',tag:'Contest',label:'Hole 11',img:IMGS.h11_contest,hole:'Hole 11',title:'💪 Long Drive',sponsor:'Supported by TaylorMade Golf',desc:"Time to unleash the big dog! Hole 11's Long Drive contest is all about distance. Longest drive in the fairway wins. Step up, wind up, let it go!",hl:['💥 Longest drive in the fairway wins','📐 Must stay in bounds to count'],tip:"Bombs don't count from the trees!",logo:LOGOS.taylormade_logo},
-  'contest-h12':{type:'contest',tag:'Contest',label:'Hole 12',img:IMGS.h12_contest,hole:'Hole 12',title:'🎳 Driver KP',sponsor:'Supported by PGA of BC',desc:"Hole 12's Driver KP flips the script — grab the big stick and see how close you can get to the pin. Control wins here.",hl:['Driver only!','📍 Closest to the flag takes it'],tip:'Let the loft do the work.',logo:LOGOS.pga_bc_logo},
-  'contest-h13':{type:'contest',tag:'Contest',label:'Hole 13',img:IMGS.h13_contest,hole:'Hole 13',title:'⛳ One Club Challenge',sponsor:'Supported by Srixon/Cleveland Golf',desc:'One club for the entire hole. Tee shot, approach, chip, putt — all with the same stick. Pick your weapon wisely and get creative!',hl:['One club for the whole hole','🧠 Course management wins'],tip:'The 7-iron is usually the right answer.',logo:LOGOS.srixon_logo},
-  'contest-h15':{type:'contest',tag:'Contest',label:'Hole 15',img:IMGS.h15_contest,hole:'Hole 15',title:'🏆 Hole in One',sponsor:'Supported by AXIS Insurance',desc:"This is the one everyone's been waiting for! Take dead aim at the flag — one swing, one bounce, one rattle of the cup. The glory lasts a lifetime.",hl:['🏆 Hole-in-one wins the grand prize!','⛳ Par 3 — one of Mayfair finest holes'],tip:'Commit, trust the line, dream big!',logo:LOGOS.axis_logo},
-  'contest-h16':{type:'contest',tag:'Contest',label:'Hole 16',img:IMGS.h16_contest,hole:'Hole 16',title:'🍺 Closest to the Keg',sponsor:'Supported by Hoyne Brewing',desc:"Stick it closest to the pin and win a round for your whole group. The most refreshing contest on the course — dial in that iron and celebrate in style.",hl:['🍺 Winner gets a round for the group!','📍 Closest to the keg on approach'],tip:'Nothing sharpens focus like cold beer on the line!',logo:LOGOS.hoyne},
+  'contest-h1':{type:'contest',tag:'Contest',label:'Hole 1',img:IMGS.h1_contest,hole:'Hole 1',title:'🎯 Straightest Drive',sponsor:'Supported by Rampion Ent. Ltd',desc:"Think you can split the fairway? Hole 1 kicks off the fun with the Straightest Drive contest! Men play from the Gold markers, women from the Blue — separate competitions for each. Accuracy is everything here.",hl:['🎯 Closest to the centre line wins','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Pick a target, stay smooth, trust your swing.',logo:LOGOS.rampion},
+  'contest-h2':{type:'contest',tag:'Contest',label:'Hole 2',img:IMGS.h1_contest,hole:'Hole 2',title:'🏌️ Closest in Two Shots',sponsor:'Supported by PGA of BC',desc:'A two-shot challenge — get as close to the pin as possible in exactly two shots. Strategy and precision are key. Men from the Gold, women from the Blue.',hl:['🏌️ Closest to the pin after 2 shots wins','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Set up the perfect approach with your first shot.',logo:LOGOS.pga_bc_logo},
+  'contest-h4':{type:'contest',tag:'Contest',label:'Hole 4',img:IMGS.h4_contest,hole:'Hole 4',title:'📍 KP — Donation for Junior Golf',sponsor:'Supported by PGA of BC',desc:'Every great shot on Hole 4 helps grow the next generation of golfers! $5 per shot — 50% goes to junior golf and 50% goes to the KP winner. Men from Gold, women from Blue. Separate competitions.',hl:['💰 $5 per shot — 50% junior golf, 50% KP winner','🔁 Take as many shots as you want','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Give back and fire at the flag!',logo:LOGOS.pga_bc_logo},
+  'contest-h5':{type:'contest',tag:'Contest',label:'Hole 5',img:IMGS.h1_contest,hole:'Hole 5',title:'💪 Long Drive',sponsor:'Supported by TaylorMade Golf',desc:"Time to unleash the big dog! Hole 5's Long Drive contest is all about distance. Longest drive in the fairway wins. Men from the Gold, women from the Blue — separate competitions.",hl:['💥 Longest drive in the fairway wins','📐 Must stay in bounds to count','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:"Bombs don't count from the trees!",logo:LOGOS.taylormade_logo},
+  'contest-h8':{type:'contest',tag:'Contest',label:'Hole 8',img:IMGS.h8_contest,hole:'Hole 8',title:'🪵 Hickory Club Challenge',sponsor:'Supported by BC Golf House Society',desc:'Put down the modern gear and pick up a classic hickory club — the same kind the legends of golf once played with. KP contest using hickory clubs provided on-site. Men from Gold, women from Blue.',hl:['🪵 Hickory clubs provided on-site','🎯 KP contest using hickory clubs','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Finesse beats force every time.',logo:LOGOS.bc_golf},
+  'contest-h10':{type:'contest',tag:'Contest',label:'Hole 10',img:IMGS.h11_contest,hole:'Hole 10',title:'🟢 Longest Putt',sponsor:'Supported by PGA of BC',desc:"Think you can drain it from distance? Hole 10 features the Longest Putt contest. Start from the back, stroke it true, and see who can make the longest putt of the day. Men from Gold, women from Blue.",hl:['🟢 Longest made putt wins','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Read the break, commit to the line, give it a chance.',logo:LOGOS.pga_bc_logo},
+  'contest-h12':{type:'contest',tag:'Contest',label:'Hole 12',img:IMGS.h12_contest,hole:'Hole 12',title:'📍 KP — Donation for Junior Golf',sponsor:'Supported by PGA of BC',desc:'Another chance to support junior golf and compete for a KP prize! $5 per shot — 50% to junior golf, 50% to the winner. Men from Gold, women from Blue. Separate competitions.',hl:['💰 $5 per shot — 50% junior golf, 50% KP winner','🔁 Take as many shots as you want','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Fire at the flag and support the next generation!',logo:LOGOS.pga_bc_logo},
+  'contest-h15':{type:'contest',tag:'Contest',label:'Hole 15',img:IMGS.h15_contest,hole:'Hole 15',title:'🏆 Hole in One (135 & 150yd+)',sponsor:'Supported by AXIS Insurance',desc:"This is the one everyone's been waiting for! All players must play from their appropriate tees for this contest — no exceptions. One swing, one bounce, one rattle of the cup. The glory lasts a lifetime.",hl:['🏆 Hole-in-one wins the grand prize!','⚠️ All players from their appropriate tees','📐 135yd & 150yd+ pin positions'],tip:'Commit, trust the line, dream big!',logo:LOGOS.axis_logo},
+  'contest-h16':{type:'contest',tag:'Contest',label:'Hole 16',img:IMGS.h16_contest,hole:'Hole 16',title:"🍺 Closest to the 'Keg'",sponsor:'Supported by Hoyne Brewing',desc:"Stick it closest to the pin and win a round for your whole group. The most refreshing contest on the course — dial in that iron and celebrate in style. Men from Gold, women from Blue.",hl:["🍺 Winner gets a round for the group!",'📍 Closest to the keg on approach','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Nothing sharpens focus like cold beer on the line!',logo:LOGOS.hoyne},
 };
 
 
 const MARKERS = [
-  ['sponsor-h1',       43.7, 48.4, '#C8F04D', '★', true],   // Rampion — moved left 10%
-  ['sponsor-h6',       62.3, 53.5, '#C8F04D', '★', true],   // Wolfe Jack — moved left 10%
-  ['sponsor-h16',      48.0, 60.8, '#C8F04D', '★', true],   // Engel & Völkers
-  ['sponsor-entrance', 55.3, 54.9, '#C8F04D', '★', true],   // GOLFTEC
+  ['sponsor-h1',       43.7, 48.4, '#C8F04D', '★', true],
+  ['sponsor-h6',       62.3, 53.5, '#C8F04D', '★', true],
+  ['sponsor-h16',      48.0, 60.8, '#C8F04D', '★', true],
+  ['sponsor-entrance', 55.3, 54.9, '#C8F04D', '★', true],
 
   ['contest-h1',  39.3, 39.2, '#E74C3C', '1',  false],
+  ['contest-h2',  53.0, 22.5, '#E74C3C', '2',  false],
   ['contest-h4',  57.3, 26.0, '#E67E22', '4',  false],
-  ['contest-h6',  61.3, 66.7, '#C9A800', '6',  false],
+  ['contest-h5',  60.0, 35.0, '#E67E22', '5',  false],
   ['contest-h8',  47.3, 83.8, '#8E44AD', '8',  false],
-  ['contest-h11', 36.0, 20.0, '#2980B9', '11', false],
+  ['contest-h10', 32.0, 53.0, '#2980B9', '10', false],
   ['contest-h12', 44.0,  3.0, '#16A085', '12', false],
-  ['contest-h13', 42.0, 24.0, '#27AE60', '13', false],
   ['contest-h15', 35.3, 58.3, '#D4AC0D', '15', false],
   ['contest-h16', 36.0, 67.6, '#C0392B', '16', false],
 ];
@@ -1531,62 +1540,68 @@ function goToMapFromModal(){ closeModal(); goTo('map'); }
 
 
 // ── DRAW ───────────────────────────────────────
-const PROS = [
-  {name:"Adam Blair",       facility:"vernongolf.com",          bio:"General Manager at the Vernon G&CC. 2024 PGA of BC Distinguished Service Award winner."},
-  {name:"Alec Hubert",      facility:"kamloopsgolfclub.com",    bio:"General Manager at the Kamloops G&CC. Co-Chair, Membership & Employment Committee."},
-  {name:"Ashley Zibrik",    facility:"shaughnessy.org",         bio:"Director of Golf at Shaughnessy G&CC. Current PGA of BC Past President. PGA of BC Women's Champion – 2022, 2018, 2012."},
-  {name:"Brad Jones",       facility:"vernongolf.com",          bio:"Golf Operations Manager, Vernon G&CC. 2024 Professional Development Top 100."},
-  {name:"Brady Stead",      facility:"ledgeviewgolf.com",       bio:"Teaching Professional at Ledgeview GC. 2024 Community Leadership Bursary Award Winner."},
-  {name:"Callum Ashby",     facility:"highlandpacificgolf.com", bio:"Head Golf Professional at Highland Pacific Golf. 2024 PGA of BC Community Engagement Committee Chair."},
-  {name:"Chris MacDonald",  facility:"gothunderbirds.ca",       bio:"Head Golf Coach at University of British Columbia. 5-time NAIA Coach of the Year."},
-  {name:"Chris Ward",       facility:"shaughnessy.org",         bio:"Associate Golf Professional at Shaughnessy G&CC. 2024 Professional Development Top 100."},
-  {name:"Christine Wong",   facility:"christinewgolf@gmail.com",bio:"Teaching Professional. PGA of BC Women's Champion – 2023, 2020. PGA of Canada Women's Champion – 2021."},
-  {name:"Curtis Baldwin",   facility:"meadowgardensgolf.com",   bio:"Director of Golf and Sales, Meadow Gardens GC & Fort Langley GC."},
-  {name:"Deneb Rondinone",  facility:"tsawwassensprings.ca",    bio:"Pro Shop Supervisor, Tsawwassen Springs Golf. 2024 Professional Development Top 100."},
-  {name:"Doug Hastie",      facility:"golfcanada.ca",           bio:"Regional Director, Golf Canada. Teaching Professional."},
-  {name:"Dylan Nickel",     facility:"chilliwackgolf.com",      bio:"Apprentice Professional, Chilliwack GC. 2024 PGA of BC Community Engagement Top 10."},
-  {name:"Fraser Mulholland",facility:"vancouvergolftour.com",   bio:"Founder of The Vancouver Golf Tour. 2004 PGA of BC Champion. 25+ year Member of the PGA of BC."},
-  {name:"GOLFTEC Professional",facility:"golftec.com",          bio:"Teaching Professional at GOLFTEC."},
-  {name:"Jared Siminoff",   facility:"hausofgolf.ca",           bio:"General Manager at The Haus of Golf. 2025 PGA of BC Tournament Committee Co-Chair."},
-  {name:"Jeff Palmer",      facility:"highlandpacificgolf.com", bio:"General Manager at Highland Pacific Golf. 2024 NGCOA Award Winner. 2024 Professional Development Top 100."},
-  {name:"Josh Legge",       facility:"universitygolf.com",      bio:"Head Golf Professional at the University Golf Club; Host Pro, 2025 Sponsor Media Appreciation Invitational."},
-  {name:"Kevin Stinson",    facility:"cheammountaingolf.ca",    bio:"Head Teaching Professional at Cheam Mountain GC. 2024 PGA of BC Player of the Year. 2023 PGA of Canada Champion."},
-  {name:"Kyle German",      facility:"callawaygolf.ca",         bio:"Sales Rep at Callaway Golf. 2008 PGA of Canada Champion. 25+ year Member of the PGA of BC."},
-  {name:"Lance Antonenko",  facility:"taylormadegolf.ca",       bio:"Territory Manager, Taylormade Golf Canada. 25+ year Member of the PGA of BC."},
-  {name:"Lenny Cyr",        facility:"seymourgolf.com",         bio:"Associate Golf Professional at Seymour G&CC. Current President of the PGA of BC."},
-  {name:"Luke Bogdan",      facility:"aceperformancecenter.com",bio:"Teaching Professional at Ace Performance Centre. Sales Rep at Pocketbrush."},
-  {name:"Mark Valliere",    facility:"glaciergreens.com",       bio:"Assistant Golf Professional at Glacier Greens GC. 2024 Professional Development Top 100."},
-  {name:"Matthew Steger",   facility:"tsawwassensprings.ca",    bio:"Associate Professional at Tsawwassen Springs Golf."},
-  {name:"Ryan Tofani",      facility:"sandpiperresort.ca",      bio:"Head Golf Professional at Sandpiper Golf Resort. 2024 PGA of BC Professional Development Award Winner."},
-  {name:"Steve Liddicoat",  facility:"thebackyard.golf",        bio:"Head Golf Professional at Backyard Golf/Clayton Hills. 2024 Tournament Committee Co-Chair."},
-  {name:"Steven Lecuyer",   facility:"seymourcreekgolf.com",    bio:"Teaching Professional at Seymour Creek Driving Range. 2023 & 2024 PGA of BC Assistant's Champion."},
-  {name:"Tyler Komick",     facility:"highlandpacificgolf.com", bio:"Teaching Professional at Highland Pacific Golf. 2024 Community Engagement Top 10."},
-  {name:"Doug Hastie",      facility:"golfcanada.ca",           bio:"Regional Director, Golf Canada. Teaching Professional."},
+const DRAW = [
+  {hole:1,  tee:'A', pro:'Brian Coe',         ams:['Michelle Collens','Sinead King','+1']},
+  {hole:1,  tee:'B', pro:'Lenny Cyr',          ams:['Shauna Wilton','Lee Fulsher','Jamie Saunders']},
+  {hole:2,  tee:'A', pro:'Doug Morgan',        ams:['Brent Lindberg','Wolfe Jack','Wolfe Jack +1']},
+  {hole:2,  tee:'B', pro:'',                   ams:['','','']},
+  {hole:3,  tee:'A', pro:'Clark MacPherson',   ams:['Sean Packer','Wes Behan','OakCreek +1']},
+  {hole:3,  tee:'B', pro:'Travis Busch',       ams:['Tony Trozzo','Brady Stoddard','']},
+  {hole:4,  tee:'A', pro:'Steve Lecuyer',      ams:['Brad Zeimer','Sam Gordon','Greg Murtland']},
+  {hole:4,  tee:'B', pro:'',                   ams:['','','']},
+  {hole:5,  tee:'A', pro:'Matt Steinbach',     ams:['','','']},
+  {hole:5,  tee:'B', pro:'Gavin Eckford',      ams:['AGA','','']},
+  {hole:6,  tee:'A', pro:'Ryan Tofani',        ams:['Jordan Epp','Tyler Gadicke','Troy Slogocki']},
+  {hole:6,  tee:'B', pro:'',                   ams:['','','']},
+  {hole:7,  tee:'A', pro:'',                   ams:['','','']},
+  {hole:7,  tee:'B', pro:'Lance Antonenko',    ams:['Thomas Estabrooks','Chad Haralson','Rampion +1']},
+  {hole:8,  tee:'A', pro:'Brad Jones',         ams:['Brendan Shykora','PlayGolf BC 1','PlayGolf BC 2']},
+  {hole:8,  tee:'B', pro:'',                   ams:['','','']},
+  {hole:9,  tee:'A', pro:'John Vu',            ams:['Dan Mann','BC Golf +1','Sheraton']},
+  {hole:9,  tee:'B', pro:'',                   ams:['','','']},
+  {hole:10, tee:'A', pro:'Mike Smedsted',      ams:['River Rock','Jason Jew','Rock Paper +1']},
+  {hole:10, tee:'B', pro:'Jaya Rampuri',       ams:['Shayain Gustavson','Rita Rennie','Khristina Blajkevitch']},
+  {hole:11, tee:'A', pro:'Chris Ward',         ams:['Ty Fluet','Sanjay Sharma','Ranbir Parhar']},
+  {hole:11, tee:'B', pro:'Sean Thompson',      ams:['Dean Larsen','Sean Harris','Frank Beck']},
+  {hole:12, tee:'A', pro:'Carson Spooner',     ams:['Rod Brathwaite','Canucks +1','Jay Janower']},
+  {hole:12, tee:'B', pro:'',                   ams:['','','']},
+  {hole:13, tee:'A', pro:'',                   ams:['','','']},
+  {hole:13, tee:'B', pro:'Bryan Peters',       ams:['Steven Schnarr','Print Culture','Print Culture +1']},
+  {hole:14, tee:'A', pro:'Jared Siminoff',     ams:['Taylor Seidel','Josh Baker','AGA']},
+  {hole:14, tee:'B', pro:'',                   ams:['','','']},
+  {hole:15, tee:'A', pro:'Caine Lacusta',      ams:['Carl Rivera','Terence Lam','AGA']},
+  {hole:15, tee:'B', pro:'',                   ams:['','','']},
+  {hole:16, tee:'A', pro:'Steve Liddicoat',    ams:['Riley Wiwchar','Mike Noetzel','']},
+  {hole:16, tee:'B', pro:'Wes Doka',           ams:['Andrew A','Ryan Saretsky','Mark MacDonald']},
+  {hole:17, tee:'A', pro:'Shawn Keough',       ams:['','','AGA']},
+  {hole:17, tee:'B', pro:'',                   ams:['','','']},
+  {hole:18, tee:'A', pro:'Kyle German',        ams:['Andy Dexter','Whitecaps','Whitecaps']},
+  {hole:18, tee:'B', pro:'Rob Tadey',          ams:['Matt Cavelti','Glen Feldstein','Mason Malkowich']},
 ];
 
-// Build draw: holes 1-12 have A+B tees, holes 13-18 have A only = 24+6 = 30 groups
-const DRAW = [];
-let pIdx = 0;
-for (let h = 1; h <= 18; h++) {
-  const tees = h <= 12 ? ['A','B'] : ['A'];
-  for (const tee of tees) {
-    DRAW.push({ hole: h, tee, pro: PROS[pIdx++] });
-  }
-}
+const HOLE_CONTESTS = {
+  1:'🎯 Straightest Drive', 2:'🏌️ Closest in Two Shots',
+  4:'📍 KP — Junior Golf', 5:'💪 Long Drive',
+  8:'🪵 Hickory Challenge', 10:'🟢 Longest Putt',
+  12:'📍 KP — Junior Golf', 15:'🏆 Hole in One',
+  16:"🍺 Closest to the 'Keg'"
+};
 
-// Group by hole for rendering
 const holeMap = {};
 for (const g of DRAW) {
   if (!holeMap[g.hole]) holeMap[g.hole] = [];
   holeMap[g.hole].push(g);
 }
 
-document.getElementById('draw-grid').innerHTML = Object.entries(holeMap).map(([hole, groups]) => `
+document.getElementById('draw-grid').innerHTML = Object.entries(holeMap).map(([hole, groups]) => {
+  const contest = HOLE_CONTESTS[+hole] ? `<div class="draw-hole-contest">${HOLE_CONTESTS[+hole]}</div>` : '';
+  return `
   <div class="draw-hole-block">
     <div class="draw-hole-header">
       <div class="draw-hole-num">${hole}</div>
       <div class="draw-hole-label">Hole ${hole}</div>
     </div>
+    ${contest}
     ${groups.map(g => `
       <div class="draw-tee-block">
         <div class="draw-tee-label">
@@ -1594,24 +1609,14 @@ document.getElementById('draw-grid').innerHTML = Object.entries(holeMap).map(([h
           Tee ${g.tee}
         </div>
         <div class="draw-group">
-          <div class="draw-player pro" onclick="openBio('${g.pro.name.replace(/'/g,"\\'")}','${g.pro.facility.replace(/'/g,"\\'")}','${g.pro.bio.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">
-            <div class="draw-player-dot pro-dot"></div>
-            <div class="draw-player-name">${g.pro.name}</div>
-          </div>
-          <div class="draw-player am"><div class="draw-player-dot am-dot"></div><div class="draw-player-name">TBA</div></div>
-          <div class="draw-player am"><div class="draw-player-dot am-dot"></div><div class="draw-player-name">TBA</div></div>
-          <div class="draw-player am"><div class="draw-player-dot am-dot"></div><div class="draw-player-name">TBA</div></div>
+          ${g.pro ? `<div class="draw-player pro"><div class="draw-player-dot pro-dot"></div><div class="draw-player-name">${g.pro}</div></div>` : `<div class="draw-player pro"><div class="draw-player-dot pro-dot"></div><div class="draw-player-name" style="color:var(--muted)">TBA</div></div>`}
+          ${g.ams.map(a => `<div class="draw-player am"><div class="draw-player-dot am-dot"></div><div class="draw-player-name">${a || '<span style="color:var(--muted)">TBA</span>'}</div></div>`).join('')}
         </div>
       </div>`).join('')}
-  </div>`).join('');
+  </div>`;
+}).join('');
 
-function openBio(name, facility, bio) {
-  document.getElementById('bio-name').textContent = name;
-  document.getElementById('bio-facility').textContent = facility;
-  document.getElementById('bio-text').textContent = bio;
-  document.getElementById('bio-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
+function openBio(name, facility, bio) {}
 function closeBio() {
   document.getElementById('bio-overlay').classList.remove('open');
   document.body.style.overflow = '';
