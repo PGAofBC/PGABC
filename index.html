@@ -1149,14 +1149,14 @@ body::after {
 
     <div class="leg-section">⛳ On-Course Contests</div>
     <div class="leg-item" onclick="openModal('contest-h1')"><div class="leg-dot" style="background:#E74C3C">1</div><div class="leg-txt"><strong>Straightest Drive</strong><span>Hole 1</span></div></div>
-    <div class="leg-item" onclick="openModal('contest-h4')"><div class="leg-dot" style="background:#E67E22">4</div><div class="leg-txt"><strong>KP — Junior Golf</strong><span>Hole 4</span></div></div>
-    <div class="leg-item" onclick="openModal('contest-h6')"><div class="leg-dot" style="background:#C9A800">6</div><div class="leg-txt"><strong>Long Drive — Marshmallow</strong><span>Hole 6</span></div></div>
-    <div class="leg-item" onclick="openModal('contest-h8')"><div class="leg-dot" style="background:#8E44AD">8</div><div class="leg-txt"><strong>Hickory Club Challenge</strong><span>Hole 8</span></div></div>
-    <div class="leg-item" onclick="openModal('contest-h11')"><div class="leg-dot" style="background:#2980B9">11</div><div class="leg-txt"><strong>Long Drive</strong><span>Hole 11</span></div></div>
-    <div class="leg-item" onclick="openModal('contest-h12')"><div class="leg-dot" style="background:#16A085">12</div><div class="leg-txt"><strong>Driver KP</strong><span>Hole 12</span></div></div>
-    <div class="leg-item" onclick="openModal('contest-h13')"><div class="leg-dot" style="background:#27AE60">13</div><div class="leg-txt"><strong>One Club Challenge</strong><span>Hole 13</span></div></div>
-    <div class="leg-item" onclick="openModal('contest-h15')"><div class="leg-dot" style="background:#D4AC0D">15</div><div class="leg-txt"><strong>Hole in One</strong><span>Hole 15</span></div></div>
-    <div class="leg-item" onclick="openModal('contest-h16')"><div class="leg-dot" style="background:#C0392B">16</div><div class="leg-txt"><strong>Closest to the Keg</strong><span>Hole 16</span></div></div>
+    <div class="leg-item" onclick="openModal('contest-h2')"><div class="leg-dot" style="background:#E67E22">2</div><div class="leg-txt"><strong>Closest in Two Shots</strong><span>Hole 2</span></div></div>
+    <div class="leg-item" onclick="openModal('contest-h4')"><div class="leg-dot" style="background:#8E44AD">4</div><div class="leg-txt"><strong>KP — Junior Golf</strong><span>Hole 4</span></div></div>
+    <div class="leg-item" onclick="openModal('contest-h5')"><div class="leg-dot" style="background:#2980B9">5</div><div class="leg-txt"><strong>Long Drive</strong><span>Hole 5</span></div></div>
+    <div class="leg-item" onclick="openModal('contest-h8')"><div class="leg-dot" style="background:#16A085">8</div><div class="leg-txt"><strong>Hickory Club Challenge</strong><span>Hole 8</span></div></div>
+    <div class="leg-item" onclick="openModal('contest-h10')"><div class="leg-dot" style="background:#27AE60">10</div><div class="leg-txt"><strong>Longest Putt</strong><span>Hole 10</span></div></div>
+    <div class="leg-item" onclick="openModal('contest-h12')"><div class="leg-dot" style="background:#C9A800">12</div><div class="leg-txt"><strong>KP — Junior Golf</strong><span>Hole 12</span></div></div>
+    <div class="leg-item" onclick="openModal('contest-h15')"><div class="leg-dot" style="background:#D4AC0D">15</div><div class="leg-txt"><strong>Hole in One (135 &amp; 150yd+)</strong><span>Hole 15</span></div></div>
+    <div class="leg-item" onclick="openModal('contest-h16')"><div class="leg-dot" style="background:#C0392B">16</div><div class="leg-txt"><strong>Closest to the 'Keg'</strong><span>Hole 16</span></div></div>
   </div>
   <div class="map-area">
     <div id="map-wrap">
@@ -1405,20 +1405,20 @@ const DATA = {
 
 
 const MARKERS = [
-  ['sponsor-h1',       43.7, 48.4, '#C8F04D', '★', true],
-  ['sponsor-h6',       62.3, 53.5, '#C8F04D', '★', true],
-  ['sponsor-h16',      48.0, 60.8, '#C8F04D', '★', true],
-  ['sponsor-entrance', 55.3, 54.9, '#C8F04D', '★', true],
+  ['sponsor-h1',       22.0, 43.0, '#C8F04D', '★', true],
+  ['sponsor-h6',       66.0, 67.0, '#C8F04D', '★', true],
+  ['sponsor-h16',      20.0, 75.0, '#C8F04D', '★', true],
+  ['sponsor-entrance', 55.0, 55.0, '#C8F04D', '★', true],
 
-  ['contest-h1',  39.3, 39.2, '#E74C3C', '1',  false],
-  ['contest-h2',  53.0, 22.5, '#E74C3C', '2',  false],
-  ['contest-h4',  57.3, 26.0, '#E67E22', '4',  false],
-  ['contest-h5',  60.0, 35.0, '#E67E22', '5',  false],
-  ['contest-h8',  47.3, 83.8, '#8E44AD', '8',  false],
-  ['contest-h10', 32.0, 53.0, '#2980B9', '10', false],
-  ['contest-h12', 44.0,  3.0, '#16A085', '12', false],
-  ['contest-h15', 35.3, 58.3, '#D4AC0D', '15', false],
-  ['contest-h16', 36.0, 67.6, '#C0392B', '16', false],
+  ['contest-h1',  28.0, 43.0, '#E74C3C', '1',  false],
+  ['contest-h2',  52.0, 17.0, '#E67E22', '2',  false],
+  ['contest-h4',  58.0, 28.0, '#8E44AD', '4',  false],
+  ['contest-h5',  62.0, 37.0, '#2980B9', '5',  false],
+  ['contest-h8',  57.0, 82.0, '#16A085', '8',  false],
+  ['contest-h10', 24.0, 52.0, '#27AE60', '10', false],
+  ['contest-h12', 42.0,  3.0, '#C9A800', '12', false],
+  ['contest-h15', 30.0, 68.0, '#D4AC0D', '15', false],
+  ['contest-h16', 27.0, 75.0, '#C0392B', '16', false],
 ];
 
 // ── SCHEDULE ──────────────────────────────────
