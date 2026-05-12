@@ -230,11 +230,13 @@ body::after {
   bottom: 2rem;
   right: 2rem;
   z-index: 2;
-  width: clamp(220px, 28vw, 380px);
+  width: clamp(180px, 22vw, 300px);
   height: auto;
   opacity: 0;
   animation: up 0.7s 0.8s forwards;
-  border-radius: 6px;
+  border-radius: 8px;
+  background: white;
+  padding: 0.6rem 1rem;
 }
 
 .title-scroll-hint {
@@ -1026,10 +1028,12 @@ body::after {
   .title-scroll-hint { display: none; }
   .title-footer-note { display: none; }
   .title-spomed-logo {
-    width: clamp(180px, 70vw, 280px);
-    bottom: 1.25rem;
-    right: 1rem;
+    width: clamp(160px, 60vw, 240px);
+    bottom: 1.5rem;
+    right: 50%;
+    transform: translateX(50%);
   }
+  .btn-ghost.btn-hide-mobile { display: none; }
 
   /* Schedule */
   #page-schedule { min-height: auto; padding: 0; }
@@ -1225,11 +1229,11 @@ body::after {
       </div>
       <div class="title-actions">
         <button class="btn-primary" onclick="goTo('schedule')">Day's Schedule</button>
-        <button class="btn-ghost" onclick="goTo('map')">Explore Course</button>
-        <button class="btn-ghost" onclick="goTo('sponsors')">Our Sponsors</button>
+        <button class="btn-ghost btn-hide-mobile" onclick="goTo('map')">Explore Course</button>
+        <button class="btn-ghost btn-hide-mobile" onclick="goTo('sponsors')">Our Sponsors</button>
       </div>
     </div>
-    <img src="images/SPOMED_LOGO.png" alt="Sponsor-Media Invitational" class="title-spomed-logo">
+    <img src="images/img_016.jpg" alt="PGA of BC" class="title-spomed-logo">
     <div class="title-scroll-hint">
       <div class="scroll-line"></div>
       <div class="scroll-txt">Scroll</div>
