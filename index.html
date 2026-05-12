@@ -1014,7 +1014,7 @@ body::after {
     padding: 2rem 1.25rem 2.5rem;
     justify-content: flex-end;
   }
-  .title-content { max-width: 100%; }
+  .title-content { max-width: 100%; display: flex; flex-direction: column; }
   .title-tag { display: none; }
   .title-h1 { font-size: clamp(2.8rem, 11vw, 4.5rem); margin-bottom: 0.75rem; line-height: 0.95; }
   .title-h1 em { font-size: 0.88em; }
@@ -1028,10 +1028,15 @@ body::after {
   .title-scroll-hint { display: none; }
   .title-footer-note { display: none; }
   .title-spomed-logo {
+    position: static;
+    display: block;
     width: clamp(160px, 60vw, 240px);
-    bottom: 1.5rem;
-    right: 50%;
-    transform: translateX(50%);
+    margin: 0.75rem auto 0;
+    transform: none;
+    bottom: auto;
+    right: auto;
+    animation: none;
+    opacity: 1;
   }
   .btn-ghost.btn-hide-mobile { display: none; }
 
@@ -1232,8 +1237,8 @@ body::after {
         <button class="btn-ghost btn-hide-mobile" onclick="goTo('map')">Explore Course</button>
         <button class="btn-ghost btn-hide-mobile" onclick="goTo('sponsors')">Our Sponsors</button>
       </div>
+      <img src="images/img_016.jpg" alt="PGA of BC" class="title-spomed-logo">
     </div>
-    <img src="images/img_016.jpg" alt="PGA of BC" class="title-spomed-logo">
     <div class="title-scroll-hint">
       <div class="scroll-line"></div>
       <div class="scroll-txt">Scroll</div>
