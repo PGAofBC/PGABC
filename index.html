@@ -372,6 +372,13 @@ body::after {
 }
 .leg-txt strong { display: block; font-size: 0.8rem; font-weight: 500; }
 .leg-txt span { font-size: 0.68rem; color: var(--muted); }
+.leg-sponsor-info {
+  padding: 0.45rem 0.65rem;
+  border-left: 2px solid var(--acid);
+  margin-bottom: 0.3rem;
+}
+.leg-sponsor-info strong { display: block; font-size: 0.8rem; font-weight: 500; color: var(--fg); }
+.leg-sponsor-info span { font-size: 0.68rem; color: var(--muted); }
 
 .map-area {
   position: relative;
@@ -1127,25 +1134,13 @@ body::after {
 <section class="page" id="page-map">
   <div class="map-sidebar">
     <div class="map-sidebar-title">Course Map</div>
-    <div class="map-sidebar-sub">Tap any pin to explore sponsors &amp; contests</div>
+    <div class="map-sidebar-sub">Tap a contest to learn more</div>
 
-    <div class="leg-section">★ Sponsors On-Course</div>
-    <div class="leg-item" onclick="openModal('sponsor-entrance')">
-      <div class="leg-star">★</div>
-      <div class="leg-txt"><strong>GOLFTEC + PGA of BC</strong><span>Main Entrance</span></div>
-    </div>
-    <div class="leg-item" onclick="openModal('sponsor-h1')">
-      <div class="leg-star">★</div>
-      <div class="leg-txt"><strong>Rampion</strong><span>Hole 1</span></div>
-    </div>
-    <div class="leg-item" onclick="openModal('sponsor-h6')">
-      <div class="leg-star">★</div>
-      <div class="leg-txt"><strong>Wolfe Jack</strong><span>Hole 6</span></div>
-    </div>
-    <div class="leg-item" onclick="openModal('sponsor-h16')">
-      <div class="leg-star">★</div>
-      <div class="leg-txt"><strong>Engel &amp; Völkers</strong><span>Hole 16</span></div>
-    </div>
+    <div class="leg-section">📍 Sponsors On-Course</div>
+    <div class="leg-sponsor-info"><strong>GOLFTEC &amp; PGA of BC</strong><span>Registration · Main Entrance</span></div>
+    <div class="leg-sponsor-info"><strong>Rampion Enterprises Ltd.</strong><span>Hole 1 Tee Box</span></div>
+    <div class="leg-sponsor-info"><strong>Wolfe Jack Supply Co.</strong><span>Hole 6 Tee Box</span></div>
+    <div class="leg-sponsor-info"><strong>Engel &amp; Völkers</strong><span>Hole 16 Tee Box</span></div>
 
     <div class="leg-section">⛳ On-Course Contests</div>
     <div class="leg-item" onclick="openModal('contest-h1')"><div class="leg-dot" style="background:#E74C3C">1</div><div class="leg-txt"><strong>Straightest Drive</strong><span>Hole 1</span></div></div>
@@ -1404,12 +1399,7 @@ const DATA = {
 };
 
 
-const MARKERS = [
-  ['sponsor-h1',       22.0, 43.0, '#C8F04D', '★', true],
-  ['sponsor-h6',       66.0, 67.0, '#C8F04D', '★', true],
-  ['sponsor-h16',      20.0, 75.0, '#C8F04D', '★', true],
-  ['sponsor-entrance', 55.0, 55.0, '#C8F04D', '★', true],
-];
+const MARKERS = [];
 
 // ── SCHEDULE ──────────────────────────────────
 document.getElementById('sched-list').innerHTML = SCHEDULE.map((s,i)=>`
