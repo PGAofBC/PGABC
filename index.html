@@ -225,6 +225,18 @@ body::after {
 }
 .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.05); transform: translateY(-2px); }
 
+.title-spomed-logo {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 2;
+  width: clamp(220px, 28vw, 380px);
+  height: auto;
+  opacity: 0;
+  animation: up 0.7s 0.8s forwards;
+  border-radius: 6px;
+}
+
 .title-scroll-hint {
   position: absolute;
   bottom: 2rem;
@@ -1013,6 +1025,11 @@ body::after {
   .btn-primary, .btn-ghost { width: 100%; padding: 1rem; font-size: 0.75rem; min-height: 52px; }
   .title-scroll-hint { display: none; }
   .title-footer-note { display: none; }
+  .title-spomed-logo {
+    width: clamp(180px, 70vw, 280px);
+    bottom: 1.25rem;
+    right: 1rem;
+  }
 
   /* Schedule */
   #page-schedule { min-height: auto; padding: 0; }
@@ -1212,6 +1229,7 @@ body::after {
         <button class="btn-ghost" onclick="goTo('sponsors')">Our Sponsors</button>
       </div>
     </div>
+    <img src="images/SPOMED_LOGO.png" alt="Sponsor-Media Invitational" class="title-spomed-logo">
     <div class="title-scroll-hint">
       <div class="scroll-line"></div>
       <div class="scroll-txt">Scroll</div>
