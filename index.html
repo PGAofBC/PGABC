@@ -706,6 +706,15 @@ body::after {
   text-underline-offset: 3px;
 }
 .draw-player.am .draw-player-name { color: rgba(245,243,239,0.45); font-style: italic; }
+.draw-player.am.clickable { cursor: pointer; transition: background 0.15s; }
+.draw-player.am.clickable:hover { background: rgba(255,255,255,0.05); }
+.draw-player.am.clickable .draw-player-name {
+  color: rgba(245,243,239,0.75);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.2);
+  text-underline-offset: 3px;
+}
+.draw-player.am.clickable:hover .draw-player-name { color: var(--white); }
 .draw-player-dot.pro-dot { background: var(--acid); }
 .draw-player-dot.am-dot { background: rgba(255,255,255,0.2); }
 .draw-footer {
@@ -1309,14 +1318,16 @@ body::after {
 <div id="bio-overlay" onclick="bioOverlayClose(event)">
   <div id="bio-modal">
     <div class="bio-topbar">
-      <div class="bio-tag">PGA of BC Professional</div>
+      <div class="bio-tag" id="bio-tag">PGA of BC Professional</div>
       <button class="bio-close" onclick="closeBio()">✕</button>
     </div>
     <div class="bio-body">
       <div class="bio-name" id="bio-name"></div>
-      <div class="bio-facility" id="bio-facility"></div>
+      <div class="bio-facility" id="bio-role"></div>
+      <div class="bio-sponsor-line" id="bio-sponsor" style="display:none;font-size:0.72rem;color:#C8F04D;margin-top:0.3rem;"></div>
       <div class="bio-divider"></div>
-      <div class="bio-text" id="bio-text"></div>
+      <div class="bio-text" id="bio-desc" style="display:none;"></div>
+      <a id="bio-url" href="#" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.75rem;font-size:0.72rem;color:#C8F04D;text-decoration:none;border-bottom:1px solid rgba(200,240,77,0.3);padding-bottom:1px;"></a>
     </div>
   </div>
 </div>
@@ -1687,43 +1698,122 @@ function goToMapFromModal(){ closeModal(); goTo('map'); }
 
 // ── DRAW ───────────────────────────────────────
 const DRAW = [
-  {hole:1,  tee:'A', pro:'Brian Coe',         ams:['Michelle Collens','Sinead King','+1']},
-  {hole:1,  tee:'B', pro:'Lenny Cyr',          ams:['Shauna Wilton','Lee Fulsher','Jamie Saunders']},
-  {hole:2,  tee:'A', pro:'Doug Morgan',        ams:['Brent Lindberg','Wolfe Jack','Wolfe Jack +1']},
-  {hole:2,  tee:'B', pro:'',                   ams:['','','']},
-  {hole:3,  tee:'A', pro:'Clark MacPherson',   ams:['Sean Packer','Wes Behan','OakCreek +1']},
-  {hole:3,  tee:'B', pro:'Travis Busch',       ams:['Tony Trozzo','Brady Stoddard','']},
-  {hole:4,  tee:'A', pro:'Steve Lecuyer',      ams:['Brad Zeimer','Sam Gordon','Greg Murtland']},
-  {hole:4,  tee:'B', pro:'',                   ams:['','','']},
-  {hole:5,  tee:'A', pro:'Matt Steinbach',     ams:['','','']},
-  {hole:5,  tee:'B', pro:'Gavin Eckford',      ams:['AGA','','']},
-  {hole:6,  tee:'A', pro:'Ryan Tofani',        ams:['Jordan Epp','Tyler Gadicke','Troy Slogocki']},
-  {hole:6,  tee:'B', pro:'',                   ams:['','','']},
-  {hole:7,  tee:'A', pro:'',                   ams:['','','']},
-  {hole:7,  tee:'B', pro:'Lance Antonenko',    ams:['Thomas Estabrooks','Chad Haralson','Rampion +1']},
-  {hole:8,  tee:'A', pro:'Brad Jones',         ams:['Brendan Shykora','PlayGolf BC 1','PlayGolf BC 2']},
-  {hole:8,  tee:'B', pro:'',                   ams:['','','']},
-  {hole:9,  tee:'A', pro:'John Vu',            ams:['Dan Mann','BC Golf +1','Sheraton']},
-  {hole:9,  tee:'B', pro:'',                   ams:['','','']},
-  {hole:10, tee:'A', pro:'Mike Smedsted',      ams:['River Rock','Jason Jew','Rock Paper +1']},
-  {hole:10, tee:'B', pro:'Jaya Rampuri',       ams:['Shayain Gustavson','Rita Rennie','Khristina Blajkevitch']},
-  {hole:11, tee:'A', pro:'Chris Ward',         ams:['Ty Fluet','Sanjay Sharma','Ranbir Parhar']},
-  {hole:11, tee:'B', pro:'Sean Thompson',      ams:['Dean Larsen','Sean Harris','Frank Beck']},
-  {hole:12, tee:'A', pro:'Carson Spooner',     ams:['Rod Brathwaite','Canucks +1','Jay Janower']},
-  {hole:12, tee:'B', pro:'',                   ams:['','','']},
-  {hole:13, tee:'A', pro:'',                   ams:['','','']},
-  {hole:13, tee:'B', pro:'Bryan Peters',       ams:['Steven Schnarr','Print Culture','Print Culture +1']},
-  {hole:14, tee:'A', pro:'Jared Siminoff',     ams:['Taylor Seidel','Josh Baker','AGA']},
-  {hole:14, tee:'B', pro:'',                   ams:['','','']},
-  {hole:15, tee:'A', pro:'Caine Lacusta',      ams:['Carl Rivera','Terence Lam','AGA']},
-  {hole:15, tee:'B', pro:'',                   ams:['','','']},
-  {hole:16, tee:'A', pro:'Steve Liddicoat',    ams:['Riley Wiwchar','Mike Noetzel','']},
-  {hole:16, tee:'B', pro:'Wes Doka',           ams:['Andrew A','Ryan Saretsky','Mark MacDonald']},
-  {hole:17, tee:'A', pro:'Shawn Keough',       ams:['','','AGA']},
-  {hole:17, tee:'B', pro:'',                   ams:['','','']},
-  {hole:18, tee:'A', pro:'Kyle German',        ams:['Andy Dexter','Whitecaps','Whitecaps']},
-  {hole:18, tee:'B', pro:'Rob Tadey',          ams:['Matt Cavelti','Glen Feldstein','Mason Malkowich']},
+  {hole:1,  tee:'A', pro:'Brian Coe',        ams:['Rita Rennie','Shauna Wilton','Ben McIntyre']},
+  {hole:1,  tee:'B', pro:'Lenny Cyr',         ams:['Lee Fulsher','Jamie Saunders','Brad Ziemer']},
+  {hole:2,  tee:'A', pro:'Doug Morgan',       ams:['Brent Lindberg','Michelle Collens','Sinead King']},
+  {hole:3,  tee:'A', pro:'Clark MacPherson',  ams:['Sean Packer','Andrew Aguanno','Ryan Saretsky']},
+  {hole:4,  tee:'A', pro:'Steve Lecuyer',     ams:['Bryan Outram','Sam Gordon','Greg Murtland']},
+  {hole:5,  tee:'A', pro:'Matt Steinbach',    ams:['Q. Duong','Sean Lee','Steven Diack']},
+  {hole:6,  tee:'A', pro:'Ryan Tofani',       ams:['Jordan Epp','Tyler Gadicke','Travis Busch']},
+  {hole:7,  tee:'A', pro:'Tom Monaghan',      ams:['Dennis Luick','Scott Jensen','Gavin Eckford']},
+  {hole:7,  tee:'B', pro:'Lance Antonenko',   ams:['Thomas Estabrooks','Sean Harris','Frank Beck']},
+  {hole:8,  tee:'A', pro:'Brad Jones',        ams:['Brendan Shykora','Troy Slogocki','Mike Kerr']},
+  {hole:9,  tee:'A', pro:'John Vu',           ams:['Chris Mark','Grant Slatten','TBC']},
+  {hole:10, tee:'A', pro:'Mike Smedsted',     ams:['Jason Jew','Huff Taylor','TBC']},
+  {hole:10, tee:'B', pro:'Sean Thompson',     ams:['Dean Larsen','Jaya Rampuri','Shayain Gustavsp']},
+  {hole:11, tee:'A', pro:'Chris Ward',        ams:['Mason Malkowich','Thomas Tran','Ranbir Parhar']},
+  {hole:12, tee:'A', pro:'Carson Spooner',    ams:['Rod Brathwaite','Justin Pogge','Jay Janower']},
+  {hole:13, tee:'A', pro:'Bryan Peters',      ams:['Steven Schnarr','Devesh Juneja','Dean Picketts']},
+  {hole:13, tee:'B', pro:'Rob Tadey',         ams:['Matt Cavelti','Glen Feldstein','TBC']},
+  {hole:14, tee:'A', pro:'Jared Siminoff',    ams:['Ty Fluet','Bart Moore','Wes Doka']},
+  {hole:15, tee:'A', pro:'Caine Lacusta',     ams:['Carl Rivera','Terence Lam','TBC']},
+  {hole:16, tee:'A', pro:'Steve Liddicoat',   ams:['Riley Wiwchar','Mike Noetzel','TBC']},
+  {hole:17, tee:'A', pro:'Shawn Keough',      ams:['Taylor Seidel','Josh Baker','TBC']},
+  {hole:18, tee:'A', pro:'Kyle German',       ams:['Andy Dexter','Ryan Sidhu','Tosaint Ricketts']},
+  {hole:18, tee:'B', pro:'Travis Busch',      ams:['Chad Haralson','Dale Haglof','TBC']},
 ];
+
+const PRO_BIOS = {
+  'Brad Jones':        {facility:'vernongolf.com',    bio:'Golf Operations Manager, Vernon G&CC. 2025 Professional Development Top 100.'},
+  'Brian Coe':         {facility:'mayfairlakes.com',  bio:'Host Head Professional, 2026 PGA of BC Sponsor Media Appreciation Invitational.'},
+  'Bryan Peters':      {facility:'ledgeviewgolf.com', bio:'Assistant Professional, Ledgeview Golf Club.'},
+  'Caine Lacusta':     {facility:'golfburnaby.ca',    bio:'Head Golf Professional, Burnaby Golf. 2025 Professional Development Top 100.'},
+  'Carson Spooner':    {facility:'goldeneaglegolfclub.com', bio:'Head Golf Professional, Golden Eagle GC. Lower Mainland Regional Tour Commissioner.'},
+  'Chris Ward':        {facility:'shaughnessy.org',   bio:'Associate Golf Professional at Shaughnessy G&CC. 2025 Professional Development Top 100.'},
+  'Clark MacPherson':  {facility:'pointgreygolf.com', bio:'Head of Membership Sales, Pt. Grey G&CC. 2025 PGA of BC Pro-Pro Champion.'},
+  'Doug Morgan':       {facility:'richmondcountryclub.ca', bio:'Teaching Professional, Richmond Country Club. 2025 PGA of BC Seniors Champion.'},
+  'Gavin Eckford':     {facility:'greenteegolfshop.com', bio:'GM at GreenTee Richmond Golf Centre.'},
+  'Jared Siminoff':    {facility:'hausofgolf.ca',     bio:'General Manager at The Haus of Golf. 2026 PGA of BC Tournament Committee Co-Chair.'},
+  'Jaya Rampuri':      {facility:'golfburnaby.ca',    bio:'Teaching Professional, Burnaby Golf. 2025 PGA of BC Women\'s Champion.'},
+  'John Vu':           {facility:'qgolfclub.com',     bio:'Assistant Golf Professional at Quilchena Golf Club. 2025 Professional Development Top 100.'},
+  'Kyle German':       {facility:'callawaygolf.com',  bio:'Outside Sales Representative, Callaway Golf. 25+ year Member of the PGA of BC.'},
+  'Lance Antonenko':   {facility:'taylormadegolf.ca', bio:'Territory Manager, Taylormade Golf Canada. 25+ year Member of the PGA of BC.'},
+  'Lenny Cyr':         {facility:'seymourgolf.com',   bio:'Associate Golf Professional at Seymour G&CC. Current President of the PGA of BC.'},
+  'Matt Steinbach':    {facility:'britishcolumbiagolf.org', bio:'Chief Executive Officer of British Columbia Golf.'},
+  'Mike Smedsted':     {facility:'mayfairlakes.com',  bio:'Host General Manager, 2026 PGA of BC Sponsor Media Appreciation Invitational.'},
+  'Rob Tadey':         {facility:'fairviewmountain.com', bio:'Head Golf Professional, Fairview Mountain Golf Club. 2026 Membership & Employment Committee Co-Chair.'},
+  'Ryan Tofani':       {facility:'ledgeviewgolf.com', bio:'General Manager, Ledgeview Golf Club. 2025 PGA of BC PDP and CEP Points Races winner.'},
+  'Sean Thompson':     {facility:'golftec.com',       bio:'Teaching Professional, GOLFTEC.'},
+  'Shawn Keough':      {facility:'marine-drive.com',  bio:'Assistant Golf Professional, Marine Drive GC. 2025 Professional Development Top 100.'},
+  'Steve Lecuyer':     {facility:'seymourcreekgolf.com', bio:'Teaching Professional at Seymour Creek Driving Range. 2023, 2024, 2025 PGA of BC Assistant\'s Champion.'},
+  'Steve Liddicoat':   {facility:'redwoods-golf.com', bio:'General Manager at The Redwoods. 2026 Tournament Committee Co-Chair.'},
+  'Thomas Estabrooks': {facility:'taylormadegolf.ca', bio:'Technical Rep, Taylormade Golf.'},
+  'Tom Monaghan':      {facility:'monaghangolf.com',  bio:'President, Monaghan Golf Group.'},
+  'Travis Busch':      {facility:'fairwinds.ca',      bio:'Head Golf Professional, Fairwinds Golf Club. 2025 Community Engagement Top 10.'},
+  'Wes Doka':          {facility:'pittmeadowsgolf.com', bio:'Head Golf Professional, Pitt Meadows Golf Club. 2025 Professional Development Top 100.'},
+};
+
+const AM_BIOS = {
+  'Andrew Aguanno':    {role:'Partnerships Manager, Coolbet Canada', sponsor:'Official Betting Partner of the PGA of BC', url:'coolbet.com', desc:'Online Sportsbook & Casino'},
+  'Andy Dexter':       {role:'Western Canadian Sales Director, Callaway Golf', sponsor:'Co-Title Sponsor, Pro-Assistant Championship', url:'callawaygolf.ca', desc:'Golf club manufacturer and distributor'},
+  'Bart Moore':        {role:'Staff, Vancouver Golf Tour', sponsor:'', url:'vancouvergolftour.com', desc:'Metro Vancouver developmental professional golf tour'},
+  'Ben McIntyre':      {role:'Account Manager, PWHL Vancouver', sponsor:'', url:'thepwhl.com', desc:"Vancouver's professional women's hockey team"},
+  'Brad Ziemer':       {role:'Leading Canadian Golf Writer', sponsor:'', url:'britishcolumbiagolf.org', desc:'Governing Body of Amateur Golf in BC'},
+  'Brendan Shykora':   {role:'Reporter, Vernon Morning Star', sponsor:'', url:'vernonmorningstar.com', desc:'Okanagan-based news'},
+  'Brent Lindberg':    {role:'Director, British Columbia Golf', sponsor:'PGA of BC Rules Official', url:'britishcolumbiagolf.org', desc:'Governing Body of Amateur Golf in BC'},
+  'Bryan Outram':      {role:'Media, British Columbia Golf', sponsor:'', url:'britishcolumbiagolf.org', desc:'Governing Body of Amateur Golf in BC'},
+  'Carl Rivera':       {role:'Owner/Operator, Thunderbolt Signs', sponsor:'Preferred Signage Partner of the PGA of BC', url:'thunderboltsign.com', desc:'Full service sign center; indoor/outdoor signs, wall/window decals, and custom work'},
+  'Chad Haralson':     {role:'Supreme Chancellor/VP Sales, Rampion', sponsor:'Presenting Sponsor, Sponsor-Media Appreciation Invitational', url:'rampionent.com', desc:'Sports product distributor; 2UNDR, Projekt, Quikflip'},
+  'Chris Mark':        {role:'Executive Chef, River Rock Casino Resort', sponsor:'', url:'riverrock.com', desc:'Full-service casino resort in Richmond'},
+  'Dale Haglof':       {role:'Operations Manager, Rampion Enterprises Ltd.', sponsor:'Presenting Sponsor, Sponsor-Media Appreciation Invitational', url:'rampionent.com', desc:'Sports product distributor; 2UNDR, Projekt, Quikflip'},
+  'Dean Larsen':       {role:'COO & VP, GOLFTEC Canada', sponsor:'Presenting Sponsor, PGA of BC Championship', url:'golftec.com', desc:'Provider of golf lessons and club fitting services'},
+  'Dean Picketts':     {role:'Guest, The Print Culture', sponsor:'Preferred Awards Partner of the PGA of BC', url:'theprintculture.com', desc:'Producer of awards for a variety of events and recipients'},
+  'Dennis Luick':      {role:'Supervisor of Golf Operations, Vancouver Park Board', sponsor:'', url:'vancouver.ca', desc:'Provides, preserves, and advocates for parks & rec services'},
+  'Devesh Juneja':     {role:'Manager, The Print Culture', sponsor:'Preferred Awards Partner of the PGA of BC', url:'theprintculture.com', desc:'Customized printed merchandise and personalized gifting'},
+  'Frank Beck':        {role:'Guest, Sandman Hotel Group', sponsor:'Preferred Hotel Partner of the PGA of BC', url:'sandmanhotels.com', desc:'Official Host Hotel for many PGA of BC events'},
+  'Glen Feldstein':    {role:'Real Estate Advisor, Engel & Völkers Vancouver', sponsor:'Preferred Real Estate Partner of the PGA of BC', url:'vancouver.evrealestate.com', desc:'Leading global luxury real estate company'},
+  'Grant Slatten':     {role:'Director, Gordon Ramsay Restaurants', sponsor:'', url:'gordonramsayrestaurants.com', desc:'Upscale steakhouse and gourmet burger restaurants'},
+  'Greg Murtland':     {role:'Sales Rep, Levelwear', sponsor:'Co-Presenting Sponsor, Seniors\' & Women\'s Championships', url:'ca.levelwear.com', desc:'Canadian textile manufacturer and distributor'},
+  'Huff Taylor':       {role:'Guest, Rock Paper Co', sponsor:'Preferred Scorecard Provider of the PGA of BC', url:'rockpaperco.com', desc:'Tree Free Paper Made From Limestone CaCO3'},
+  'Jamie Saunders':    {role:'Guest, Axis Insurance', sponsor:'', url:'axisinsurance.ca', desc:'Provider of commercial and personal insurance services'},
+  'Jason Jew':         {role:'Director, Rock Paper Co', sponsor:'Preferred Scorecard Provider of the PGA of BC', url:'rockpaperco.com', desc:'Tree Free Paper Made From Limestone CaCO3'},
+  'Jay Janower':       {role:'Weekend Anchor, Global News and Sports', sponsor:'Spokesperson, Golfathon for ALS', url:'globaltv.com', desc:'One of Canada\'s premier conventional networks'},
+  'Jordan Epp':        {role:'Director of Accounting & Operations, G&G Brands', sponsor:'Co-Title Sponsor, Pro-Assistant Championship', url:'gandg.ca', desc:'Canadian wholesale supplier of lifestyle and sporting goods'},
+  'Josh Baker':        {role:'Guest of Srixon/Cleveland Golf', sponsor:'Co-Presenting Sponsor of the Club Pro Championship', url:'srixonconnect.com', desc:'Family of global brands under Dunlop Sports'},
+  'Justin Pogge':      {role:'Guest of Vancouver Canucks', sponsor:'', url:'canucks.com', desc:"Vancouver's major professional men's hockey team"},
+  'Lee Fulsher':       {role:'Commercial Account Executive, Axis Insurance', sponsor:'Title Sponsor, PGA of BC Championship', url:'axisinsurance.ca', desc:'Provider of commercial and personal insurance services'},
+  'Mason Malkowich':   {role:'Producer, Steve Tees Off podcast', sponsor:'', url:'shipoffools.ca/steve-tees-off-podcast', desc:'Local podcast covering golf\'s personalities and stories'},
+  'Matt Cavelti':      {role:'Professional Realtor, Engel & Völkers Vancouver', sponsor:'Preferred Real Estate Partner of the PGA of BC', url:'vancouver.evrealestate.com', desc:'Leading global luxury real estate company'},
+  'Michelle Collens':  {role:'Director, Sport Hosting Vancouver', sponsor:'', url:'vancouver.ca', desc:'Provides financial support for sporting events that benefit Vancouver'},
+  'Mike Kerr':         {role:'Owner, Flags 4 Golf', sponsor:'', url:'flags4golf.com', desc:'Creation and design of unique sponsorship tools in support of nonprofits'},
+  'Mike Noetzel':      {role:'Director, Event Facilities, Township of Langley', sponsor:'Host Facility, 2025 PGA of BC Fall Trade Show', url:'langleyeventscentre.com', desc:'Multi-purpose facility in the Township of Langley'},
+  'Q. Duong':          {role:'Sheraton Vancouver Airport Hotel', sponsor:'', url:'marriott.com', desc:'Full-service airport hotel in Richmond'},
+  'Ranbir Parhar':     {role:'Senior Account Manager, Lamar Advertising', sponsor:'', url:'lamar.com', desc:'Outdoor advertising company; billboards, signs, transit'},
+  'Riley Wiwchar':     {role:'Langley Events Centre', sponsor:'Host Facility, 2025 PGA of BC Fall Trade Show', url:'langleyeventscentre.com', desc:'Multi-purpose facility in the Township of Langley'},
+  'Rita Rennie':       {role:'Director of Marketing & Digital Strategy, Golf BC Group', sponsor:'', url:'golfbc.com', desc:'Owners and Operators of championship golf courses in BC and Hawaii'},
+  'Rod Brathwaite':    {role:'Manager of Minor Hockey and Alumni', sponsor:'Partner, Junior Golf Month', url:'canucks.com', desc:"Vancouver's major professional men's hockey team"},
+  'Ryan Saretsky':     {role:'Guest, Coolbet', sponsor:'Preferred Betting Partner of the PGA of BC', url:'coolbet.com', desc:'Online betting platform'},
+  'Ryan Sidhu':        {role:'Vancouver Whitecaps Player', sponsor:'', url:'whitecapsfc.com', desc:"Vancouver's professional men's soccer team"},
+  'Sam Gordon':        {role:'Sales Rep, Levelwear', sponsor:'Co-Presenting Sponsor, Seniors\' & Women\'s Championships', url:'ca.levelwear.com', desc:'Canadian textile manufacturer and distributor'},
+  'Scott Jensen':      {role:'Vancouver Park Board Commissioner', sponsor:'', url:'vancouver.ca', desc:'Provides, preserves, and advocates for parks & rec services'},
+  'Sean Harris':       {role:'National Account Manager, Sandman Hotel Group', sponsor:'Preferred Hotel Partner of the PGA of BC', url:'sandmanhotels.com', desc:'Official Host Hotel for many PGA of BC events'},
+  'Sean Lee':          {role:'General Manager YVR, Million Air', sponsor:'', url:'millionair.com', desc:'Upscale private aviation services and ground support'},
+  'Sean Packer':       {role:'Owner/Operator, NW Golf Report', sponsor:'', url:'nwgolfreport.com', desc:'Reporting updates and results of golf in BC, Idaho, Oregon, and Washington'},
+  'Shauna Wilton':     {role:'Vice President, Event Operations, PNE', sponsor:'', url:'pne.ca', desc:'Featuring Playland, Pacific Coliseum, PNE Forum, and other festival spaces'},
+  'Shayain Gustavsp':  {role:'Coach Shayain, Social Media Golf Influencer', sponsor:'', url:'coachshayain.com', desc:'LPGA professional blending the world of golf and business'},
+  'Sinead King':       {role:'Vancouver Rise', sponsor:'', url:'vanrisefc.com', desc:"Vancouver's professional women's soccer team"},
+  'Steven Diack':      {role:'Guest, Mobilicab', sponsor:'Co-Presenting Sponsor of the Club Pro Championship', url:'mobilicab.com', desc:'Club Car distributor for Quebec, Ontario, Alberta, and BC'},
+  'Steven Schnarr':    {role:'BC Territory Sales Representative, Golf Trends Inc.', sponsor:'Co-Presenting Sponsor of the Pro-Pro Championship', url:'golftrendsinc.com', desc:'Trusted supplier of quality brands to the Canadian golf industry'},
+  'Taylor Seidel':     {role:'Tournament Operations, Vancouver Golf Tour', sponsor:'', url:'vancouvergolftour.com', desc:'Local golf tour for BC golf professionals and amateur players'},
+  'Terence Lam':       {role:'Thunderbolt Sign', sponsor:'Preferred Signage Partner of the PGA of BC', url:'thunderboltsign.com', desc:'Full service sign center; indoor/outdoor signs, wall/window decals, and custom work'},
+  'Thomas Tran':       {role:'Account Executive, Pattison Outdoor', sponsor:'', url:'pattisonoutdoor.com', desc:"Canada's largest out-of-home advertising company"},
+  'Thomas Estabrooks': {role:'Technical Rep, Taylormade Golf', sponsor:'', url:'taylormadegolf.ca', desc:'Global leader in golf equipment'},
+  'Tosaint Ricketts':  {role:'Vancouver Whitecaps & Canadian Men\'s National Team Alum', sponsor:'', url:'whitecapsfc.com', desc:"Vancouver's professional men's soccer team"},
+  'Troy Slogocki':     {role:'President, iScoreGolf', sponsor:'Preferred Digital Solutions Partner of the PGA of BC', url:'iscoregolf.ca', desc:'Full service A/V tournament equipment provider'},
+  'Ty Fluet':          {role:'Staff, Vancouver Golf Tour', sponsor:'', url:'vancouvergolftour.com', desc:'Metro Vancouver developmental professional golf tour'},
+  'Tyler Gadicke':     {role:'Logistics & Inventory Manager, G&G Brands', sponsor:'Co-Title Sponsor, Pro-Assistant Championship', url:'gandg.ca', desc:'Canadian wholesale supplier of lifestyle and sporting goods'},
+  'Wes Doka':          {role:'Head Golf Professional, Pitt Meadows Golf Club', sponsor:'', url:'pittmeadowsgolf.com', desc:'2025 Professional Development Top 100'},
+};
 
 const HOLE_CONTESTS = {
   1:'🎯 Straightest Drive', 2:'🏌️ Closest in Two Shots',
@@ -1737,6 +1827,16 @@ const holeMap = {};
 for (const g of DRAW) {
   if (!holeMap[g.hole]) holeMap[g.hole] = [];
   holeMap[g.hole].push(g);
+}
+
+function playerBtn(name, isPro) {
+  if (!name || name === 'TBC') return `<div class="draw-player ${isPro?'pro':'am'}"><div class="draw-player-dot ${isPro?'pro':'am'}-dot"></div><div class="draw-player-name" style="color:var(--muted)">${name||'TBA'}</div></div>`;
+  const bio = isPro ? PRO_BIOS[name] : AM_BIOS[name];
+  if (bio) {
+    const esc = s => s.replace(/'/g,"\\'").replace(/"/g,'&quot;');
+    return `<div class="draw-player ${isPro?'pro':'am'} clickable" onclick="openBio(${JSON.stringify(name)},${JSON.stringify(isPro)})"><div class="draw-player-dot ${isPro?'pro':'am'}-dot"></div><div class="draw-player-name draw-player-link">${name}</div></div>`;
+  }
+  return `<div class="draw-player ${isPro?'pro':'am'}"><div class="draw-player-dot ${isPro?'pro':'am'}-dot"></div><div class="draw-player-name">${name}</div></div>`;
 }
 
 document.getElementById('draw-grid').innerHTML = Object.entries(holeMap).map(([hole, groups]) => {
@@ -1755,14 +1855,41 @@ document.getElementById('draw-grid').innerHTML = Object.entries(holeMap).map(([h
           Tee ${g.tee}
         </div>
         <div class="draw-group">
-          ${g.pro ? `<div class="draw-player pro"><div class="draw-player-dot pro-dot"></div><div class="draw-player-name">${g.pro}</div></div>` : `<div class="draw-player pro"><div class="draw-player-dot pro-dot"></div><div class="draw-player-name" style="color:var(--muted)">TBA</div></div>`}
-          ${g.ams.map(a => `<div class="draw-player am"><div class="draw-player-dot am-dot"></div><div class="draw-player-name">${a || '<span style="color:var(--muted)">TBA</span>'}</div></div>`).join('')}
+          ${playerBtn(g.pro, true)}
+          ${g.ams.map(a => playerBtn(a, false)).join('')}
         </div>
       </div>`).join('')}
   </div>`;
 }).join('');
 
-function openBio(name, facility, bio) {}
+function openBio(name, isPro) {
+  const bio = isPro ? PRO_BIOS[name] : AM_BIOS[name];
+  if (!bio) return;
+  document.getElementById('bio-tag').textContent = isPro ? 'PGA of BC Professional' : 'Guest / Media';
+  document.getElementById('bio-name').textContent = name;
+  if (isPro) {
+    document.getElementById('bio-role').textContent = bio.bio;
+    document.getElementById('bio-sponsor').style.display = 'none';
+    document.getElementById('bio-url').href = 'https://' + bio.facility;
+    document.getElementById('bio-url').textContent = bio.facility;
+    document.getElementById('bio-desc').style.display = 'none';
+  } else {
+    document.getElementById('bio-role').textContent = bio.role;
+    if (bio.sponsor) {
+      document.getElementById('bio-sponsor').textContent = bio.sponsor;
+      document.getElementById('bio-sponsor').style.display = 'block';
+    } else {
+      document.getElementById('bio-sponsor').style.display = 'none';
+    }
+    document.getElementById('bio-url').href = 'https://' + bio.url;
+    document.getElementById('bio-url').textContent = bio.url;
+    document.getElementById('bio-desc').textContent = bio.desc;
+    document.getElementById('bio-desc').style.display = 'block';
+  }
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
 function closeBio() {
   document.getElementById('bio-overlay').classList.remove('open');
   document.body.style.overflow = '';
