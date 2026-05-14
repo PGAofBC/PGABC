@@ -1223,7 +1223,10 @@ body::after {
       <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></span>Course
     </button>
     <button class="nav-btn" onclick="goTo('draw')">
-      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1" fill="currentColor"/><circle cx="3" cy="12" r="1" fill="currentColor"/><circle cx="3" cy="18" r="1" fill="currentColor"/></svg></span>Draw
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1" fill="currentColor"/><circle cx="3" cy="12" r="1" fill="currentColor"/><circle cx="3" cy="18" r="1" fill="currentColor"/></svg></span>Draw / Bios
+    </button>
+    <button class="nav-btn" onclick="goTo('prizes')">
+      <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></span>Prizes
     </button>
     <button class="nav-btn" onclick="goTo('sponsors')">
       <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>Sponsors
@@ -1281,7 +1284,7 @@ body::after {
     <div class="leg-sponsor-info"><strong>GOLFTEC &amp; PGA of BC</strong><span>Registration · Main Entrance</span></div>
     <div class="leg-sponsor-info"><strong>Rampion Enterprises Ltd.</strong><span>Hole 1 Tee Box</span></div>
     <div class="leg-sponsor-info"><strong>Wolfe Jack Supply Co.</strong><span>Hole 6 Tee Box</span></div>
-    <div class="leg-sponsor-info"><strong>Engel &amp; Völkers</strong><span>Hole 16 Tee Box</span></div>
+    <div class="leg-sponsor-info"><strong>Engel &amp; Völkers</strong><span>Hole 1 Tee Box</span></div>
 
     <div class="leg-section">⛳ On-Course Contests</div>
     <div class="leg-item" onclick="openModal('contest-h1')"><div class="leg-dot" style="background:#E74C3C">1</div><div class="leg-txt"><strong>Straightest Drive</strong><span>Hole 1</span></div></div>
@@ -1335,6 +1338,53 @@ body::after {
   </div>
 </div>
 
+<!-- ══ PRIZES ══ -->
+<section class="page" id="page-prizes" style="background:var(--black);overflow-y:auto;">
+  <div style="max-width:860px;margin:0 auto;padding:2.5rem 1.5rem 5rem;">
+
+    <!-- Header -->
+    <div style="text-align:center;padding:1.5rem 0 2.5rem;">
+      <div style="font-size:0.65rem;letter-spacing:0.22em;color:var(--acid);text-transform:uppercase;margin-bottom:0.75rem;font-weight:600;">2026 · Mayfair Lakes Golf & Country Club</div>
+      <h1 style="font-size:1.9rem;font-weight:800;color:var(--white);letter-spacing:0.06em;text-transform:uppercase;margin:0 0 0.75rem;">Prize Inventory</h1>
+      <div style="width:2.5rem;height:2px;background:var(--acid);margin:0 auto 1rem;"></div>
+      <p style="color:var(--muted);font-size:0.82rem;margin:0;max-width:420px;margin:0 auto;line-height:1.6;">All prizes will be awarded during the post-round lunch festivities. On-course contest prizes are distributed at scoring.</p>
+    </div>
+
+    <!-- General Draw Section -->
+    <div style="margin-bottom:3rem;">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+        <div style="width:3px;height:1.2rem;background:var(--acid);border-radius:2px;flex-shrink:0;"></div>
+        <h2 style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);margin:0;">General Draw</h2>
+        <div style="flex:1;height:1px;background:rgba(255,255,255,0.07);"></div>
+        <div style="font-size:0.65rem;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase;">33 Prizes</div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr style="background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.08);">
+              <th style="padding:0.65rem 1rem 0.65rem 1.25rem;text-align:left;color:var(--muted);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;width:2.5rem;">#</th>
+              <th style="padding:0.65rem 1rem;text-align:left;color:var(--muted);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;">Prize</th>
+              <th style="padding:0.65rem 1.25rem 0.65rem 1rem;text-align:right;color:var(--muted);font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;">Courtesy of</th>
+            </tr>
+          </thead>
+          <tbody id="draw-prizes-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- On-Course Contests Section -->
+    <div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;">
+        <div style="width:3px;height:1.2rem;background:var(--acid);border-radius:2px;flex-shrink:0;"></div>
+        <h2 style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--white);margin:0;">On-Course Contests</h2>
+        <div style="flex:1;height:1px;background:rgba(255,255,255,0.07);"></div>
+      </div>
+      <div id="contest-prizes-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;"></div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ══ SPONSORS ══ -->
 <section class="page" id="page-sponsors">
   <div class="sp-hero">
@@ -1350,19 +1400,19 @@ body::after {
     <div style="font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C8F04D;margin-bottom:1rem;">Presenting Sponsors</div>
   </div>
   <div class="sp-grid" style="grid-template-columns:repeat(2,1fr);">
-    <div class="sp-card" onclick="openModal('sponsor-entrance')">
+    <div class="sp-card" onclick="window.open('https://www.golftec.com/','_blank')">
       <div class="sp-logo-box"><img src="images/img_004.jpg" alt="GOLFTEC" style="max-height:70px;max-width:100%;object-fit:contain;"></div>
       <div class="sp-tag">Presenting Sponsor</div>
       <div class="sp-name">GOLFTEC</div>
       <div class="sp-loc">📍 Main Entrance — Registration Area</div>
-      <div class="sp-arrow">View on map →</div>
+      <div class="sp-arrow">Visit Website →</div>
     </div>
-    <div class="sp-card" onclick="openModal('sponsor-h1')">
-      <div class="sp-logo-box" ><img src="images/Rampion.jpg" alt="Rampion" style="max-height:55px;max-width:100%;object-fit:contain;background:#fff;padding:6px;border-radius:6px;"></div>
+    <div class="sp-card" onclick="window.open('https://rampionent.com/','_blank')">
+      <div class="sp-logo-box"><img src="images/Rampion.jpg" alt="Rampion" style="max-height:55px;max-width:100%;object-fit:contain;background:#fff;padding:6px;border-radius:6px;"></div>
       <div class="sp-tag">Presenting Sponsor</div>
       <div class="sp-name">Rampion Enterprises Ltd.</div>
       <div class="sp-loc">📍 Hole 1 — Opening Tee</div>
-      <div class="sp-arrow">View on map →</div>
+      <div class="sp-arrow">Visit Website →</div>
     </div>
   </div>
 
@@ -1372,11 +1422,6 @@ body::after {
     <div style="font-family:'Syne',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#C8F04D;margin-bottom:1rem;">Prize Contributors</div>
   </div>
   <div class="sp-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
-    <div class="sp-card">
-      <div class="sp-logo-box"><img src="images/Rampion.jpg" alt="Rampion Enterprises Ltd." style="max-height:55px;max-width:100%;object-fit:contain;background:#fff;padding:6px;border-radius:6px;"></div>
-      <div class="sp-tag">Prize Contributor</div>
-      <div class="sp-name">Rampion Enterprises Ltd.</div>
-    </div>
     <div class="sp-card">
       <div class="sp-logo-box"><img src="images/Titleist_pptx.png" alt="Titleist" style="max-height:60px;max-width:100%;object-fit:contain;background:#fff;padding:6px;border-radius:6px;"></div>
       <div class="sp-tag">Prize Contributor</div>
@@ -1600,7 +1645,7 @@ const DATA = {
   'sponsor-entrance':{type:'sponsor',tag:'Sponsor',label:'Main Entrance',img:IMGS.entrance,hole:'Main Entrance · Mayfair Lakes',title:'GOLFTEC + PGA of BC',desc:"Before you tee it up, swing by the main entrance to say hello to today's incredible sponsors! GOLFTEC is ready to chat about your game, and the PGA of BC team is here to get you registered with awesome tee gifts.",hl:['📋 PGA of BC — Registration & tee gift pick-up','🏌️ GOLFTEC — Come chat about your game'],tip:'First stop of the day — start it right!',sponsor:'',logo:LOGOS.golftec},
   'sponsor-h1':{type:'sponsor',tag:'Sponsor',label:'Hole 1',img:IMGS.hole1,hole:'Hole 1 · Opening Tee',title:'Rampion Enterprises Ltd.',desc:"Kick off your round with Rampion Enterprises Ltd. at the first tee! The team will be on hand all day — take a moment to say hello before you stripe it down the fairway.",hl:['👋 Rampion team on-site at the opening tee','🏆 Find out what Rampion can do for you'],tip:'Best way to start a round — with a handshake!',sponsor:'',logo:LOGOS.rampion},
   'sponsor-h6':{type:'sponsor',tag:'Sponsor',label:'Hole 6',img:IMGS.hole6,hole:'Hole 6 · Parking Lot Corridor',title:'Wolfe Jack Supply Co.',desc:"Rolling through Hole 6? The Wolfe Jack Supply Co. crew is out here and they brought the energy! Swing by and get to know one of today's fantastic sponsors.",hl:['🎉 Wolfe Jack Supply Co. — Hole 6 Sponsor','😄 Stop by — they would love to meet you!'],tip:'Mid-round energy boost — delivered!',sponsor:'',logo:LOGOS.wolfe_jack},
-  'sponsor-h16':{type:'sponsor',tag:'Sponsor',label:'Hole 16',img:IMGS.hole16,hole:'Hole 16 · Clubhouse View',title:'Engel & Volkers',desc:"Heading into the home stretch? Stop and say hi to the Engel & Volkers team at Hole 16! Whether curious about real estate or just want a friendly face on the back nine, they're here.",hl:['🏡 Engel & Volkers — Premium real estate','📍 Find them at the Hole 16 fairway'],tip:'Home stretch — finish strong and say hello!',sponsor:'',logo:LOGOS.gg_brands_logo},
+  'sponsor-h16':{type:'sponsor',tag:'Sponsor',label:'Hole 1',img:IMGS.hole1,hole:'Hole 1 · Opening Tee',title:'Engel & Volkers',desc:"Welcome to the first tee! The Engel & Völkers team is here to greet you as you kick off your round. Whether curious about real estate or just want a friendly face to start the day, they're here.",hl:['🏡 Engel & Völkers — Premium real estate','📍 Find them at the Hole 1 tee box'],tip:'Great way to start the round — say hello!',sponsor:'',logo:LOGOS.gg_brands_logo},
   'contest-h1':{type:'contest',tag:'Contest',label:'Hole 1',img:IMGS.h1_contest,hole:'Hole 1',title:'🎯 Straightest Drive',sponsor:'Supported by Rampion Ent. Ltd',desc:"Think you can split the fairway? Hole 1 kicks off the fun with the Straightest Drive contest! Men play from the Gold markers, women from the Blue — separate competitions for each. Accuracy is everything here.",hl:['🎯 Closest to the centre line wins','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Pick a target, stay smooth, trust your swing.',logo:LOGOS.rampion},
   'contest-h2':{type:'contest',tag:'Contest',label:'Hole 2',img:IMGS.h1_contest,hole:'Hole 2',title:'🏌️ Closest in Two Shots',sponsor:'Supported by PGA of BC',desc:'A two-shot challenge — get as close to the pin as possible in exactly two shots. Strategy and precision are key. Men from the Gold, women from the Blue.',hl:['🏌️ Closest to the pin after 2 shots wins','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Set up the perfect approach with your first shot.',logo:LOGOS.pga_bc_logo},
   'contest-h4':{type:'contest',tag:'Contest',label:'Hole 4',img:IMGS.h4_contest,hole:'Hole 4',title:'📍 Closest to the Pin',sponsor:'Supported by PGA of BC',desc:'Step up and fire at the flag on Hole 4. Closest to the pin wins — men and women compete separately.',hl:['📍 Closest to the pin wins','⛳ Men: Gold markers · Women: Blue markers','📏 Separate competitions — Men & Women'],tip:'Pick your line, commit to the shot.',logo:LOGOS.pga_bc_logo},
@@ -1626,7 +1671,7 @@ document.getElementById('sched-list').innerHTML = SCHEDULE.map((s,i)=>`
   </div>`).join('');
 
 // ── NAV / PAGES ───────────────────────────────
-const PAGES = ['title','schedule','map','draw','sponsors'];
+const PAGES = ['title','schedule','map','draw','prizes','sponsors'];
 const isMobile = () => window.innerWidth <= 768;
 
 function goTo(id) {
@@ -1948,6 +1993,116 @@ function closeBio() {
 }
 function bioOverlayClose(e) { if(e.target===document.getElementById('bio-overlay')) closeBio(); }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') { closeModal(); closeBio(); } });
+
+// ── PRIZES ──────────────────────────────────────
+const DRAW_PRIZES = [
+  {n:1,  prize:'2 Press Box Tickets',                              sponsor:'Vancouver Canucks'},
+  {n:2,  prize:'1 Night Stay, $100 F&B Voucher & $100 Bet Credit', sponsor:'River Rock Resort Casino'},
+  {n:3,  prize:'1 Night Stay',                                     sponsor:'Sheraton Vancouver Airport'},
+  {n:4,  prize:'Evnroll Putter',                                   sponsor:'Golf Trends Inc.'},
+  {n:5,  prize:'Round of Golf for 4',                              sponsor:'Ledgeview Golf Club'},
+  {n:6,  prize:'Round of Golf for 4',                              sponsor:'Sandpiper Golf Club'},
+  {n:7,  prize:'1 Night Stay',                                     sponsor:'The Sandman Hotel Group'},
+  {n:8,  prize:'2× Round of Golf for Two',                         sponsor:'Mayfair Lakes Golf & Country Club'},
+  {n:9,  prize:'Signed Vancouver Whitecaps Jersey',                sponsor:'Sport Hosting BC & Vancouver Whitecaps'},
+  {n:10, prize:'Projekt Dutton Backpack',                          sponsor:'Rampion Enterprises Ltd.'},
+  {n:11, prize:'2UNDR Cordero Pull Over',                          sponsor:'Rampion Enterprises Ltd.'},
+  {n:12, prize:'2UNDR Cordero Pull Over',                          sponsor:'Rampion Enterprises Ltd.'},
+  {n:13, prize:'2UNDR Polo',                                       sponsor:'Rampion Enterprises Ltd.'},
+  {n:14, prize:'2UNDR Polo',                                       sponsor:'Rampion Enterprises Ltd.'},
+  {n:15, prize:'Dozen TP5 Golf Balls',                             sponsor:'BC Golf Group'},
+  {n:16, prize:'Four Pack Courtside Seats – Vancouver Bandits',    sponsor:'Langley Events Centre & Vancouver Bandits'},
+  {n:17, prize:'Mizuno Golf Bag & Towel',                          sponsor:'Mizuno'},
+  {n:18, prize:'2× Round of Golf for Two',                         sponsor:'Golden Eagle Golf Club'},
+  {n:19, prize:'Eco-Vessel & Pocket Brush',                        sponsor:'G&G Brands & Pocket Brush'},
+  {n:20, prize:'BC Lions Hat & Eco-Vessel',                        sponsor:'G&G Brands'},
+  {n:21, prize:'Dozen Pro-V1 Golf Balls',                          sponsor:'Titleist'},
+  {n:22, prize:'Titleist Hat',                                     sponsor:'Titleist'},
+  {n:23, prize:'Projekt Koncord – DaGrey',                         sponsor:'Rampion Enterprises Ltd.'},
+  {n:24, prize:'Projekt Red Eye – Blackout',                       sponsor:'Rampion Enterprises Ltd.'},
+  {n:25, prize:'Projekt Shell Shock – Black',                      sponsor:'Rampion Enterprises Ltd.'},
+  {n:26, prize:'2UNDR Cordero ¼ Zip Pullover – Tan, Large',        sponsor:'Rampion Enterprises Ltd.'},
+  {n:27, prize:'2UNDR Cordero ¼ Zip Pullover – Tan, Large',        sponsor:'Rampion Enterprises Ltd.'},
+  {n:28, prize:'2UNDR Short Sleeve Polo Classic 2.0 – Dark Navy, Large', sponsor:'Rampion Enterprises Ltd.'},
+  {n:29, prize:'2UNDR Short Sleeve Polo Classic 2.0 – Dark Navy, Large', sponsor:'Rampion Enterprises Ltd.'},
+  {n:30, prize:'Callaway Golf Bag',                                sponsor:'Callaway'},
+  {n:31, prize:'Notebooks',                                        sponsor:'Rock Paper Co.'},
+  {n:32, prize:'3 Hour Bay Rental',                                sponsor:'House of Golf'},
+  {n:33, prize:'3 Hour Bay Rental',                                sponsor:'House of Golf'},
+];
+
+const CONTEST_PRIZES = [
+  {contest:'Straightest Drive', hole:'Hole 1', prizes:[
+    {prize:'Projekt Puddle Jumper – Blackout', sponsor:'Rampion Enterprises Ltd.'},
+    {prize:'Projekt Puddle Jumper – Blackout', sponsor:'Rampion Enterprises Ltd.'},
+  ]},
+  {contest:'Closest in Two Shots', hole:'Hole 2', prizes:[
+    {prize:'Titleist Hat', sponsor:'Titleist'},
+    {prize:'Titleist Hat', sponsor:'Titleist'},
+  ]},
+  {contest:'Closest to the Pin', hole:'Hole 4', prizes:[
+    {prize:'Pro V1 Dozen Golf Balls', sponsor:'Titleist'},
+    {prize:'Pro V1 Dozen Golf Balls', sponsor:'Titleist'},
+    {prize:'Pro V1 Dozen Golf Balls', sponsor:'Titleist'},
+  ]},
+  {contest:'Long Drive', hole:'Hole 5', prizes:[
+    {prize:'Hat & Dozen Balls', sponsor:'Callaway'},
+    {prize:'Hat & Dozen Balls', sponsor:'Callaway'},
+    {prize:'Hat & Dozen Balls', sponsor:'Callaway'},
+  ]},
+  {contest:'Hickory Challenge', hole:'Hole 8', prizes:[
+    {prize:'Prize Package', sponsor:'Golf Society House'},
+    {prize:'Prize Package', sponsor:'Golf Society House'},
+  ]},
+  {contest:'Longest Putt', hole:'Hole 10', prizes:[
+    {prize:'Eco-Vessel & Pocket Brush', sponsor:'G&G Brands & Pocket Brush'},
+    {prize:'Eco-Vessel & Pocket Brush', sponsor:'G&G Brands & Pocket Brush'},
+  ]},
+  {contest:'Closest to the Pin', hole:'Hole 12', prizes:[
+    {prize:'Mizuno Prize Pack', sponsor:'Mizuno'},
+    {prize:'Mizuno Prize Pack', sponsor:'Mizuno'},
+  ]},
+  {contest:"Closest to the Keg", hole:'Hole 16', prizes:[
+    {prize:'Opus Wedge', sponsor:'Callaway'},
+    {prize:'Opus Wedge', sponsor:'Callaway'},
+  ]},
+  {contest:'PGA Championship Raffle', hole:'Special', prizes:[
+    {prize:'PING Golf Bag & Hat', sponsor:'Steve Tees Off'},
+  ]},
+];
+
+// Render draw prizes table — sorted by sponsor name, sequentially renumbered
+(function(){
+  const tbody = document.getElementById('draw-prizes-body');
+  if (!tbody) return;
+  const sorted = [...DRAW_PRIZES].sort((a,b) => a.sponsor.localeCompare(b.sponsor));
+  tbody.innerHTML = sorted.map((p,i) => `
+    <tr style="border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.03)'" onmouseout="this.style.background='transparent'">
+      <td style="padding:0.65rem 1rem 0.65rem 1.25rem;color:rgba(255,255,255,0.25);font-size:0.7rem;font-weight:600;font-variant-numeric:tabular-nums;">${String(i+1).padStart(2,'0')}</td>
+      <td style="padding:0.65rem 1rem;color:var(--white);font-size:0.83rem;font-weight:500;">${p.prize}</td>
+      <td style="padding:0.65rem 1.25rem 0.65rem 1rem;color:var(--acid);font-size:0.75rem;text-align:right;font-weight:500;">${p.sponsor}</td>
+    </tr>`).join('');
+})();
+
+// Render contest prizes grid
+(function(){
+  const grid = document.getElementById('contest-prizes-grid');
+  if (!grid) return;
+  grid.innerHTML = CONTEST_PRIZES.map(c => `
+    <div style="background:var(--black);padding:1.25rem 1.25rem 1rem;">
+      <div style="margin-bottom:0.75rem;">
+        <div style="font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--acid);font-weight:600;margin-bottom:0.2rem;">${c.hole}</div>
+        <div style="font-size:0.88rem;font-weight:700;color:var(--white);letter-spacing:0.02em;">${c.contest}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        ${c.prizes.map(p => `
+          <div style="display:flex;justify-content:space-between;align-items:baseline;gap:0.5rem;padding:0.35rem 0;border-top:1px solid rgba(255,255,255,0.06);">
+            <span style="color:rgba(255,255,255,0.75);font-size:0.78rem;">${p.prize}</span>
+            <span style="color:rgba(255,255,255,0.35);font-size:0.7rem;white-space:nowrap;">${p.sponsor}</span>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+})();
 
 // ── INIT ──────────────────────────────────────
 if (isMobile()) document.body.classList.add('mobile-body');
