@@ -1873,8 +1873,8 @@ function playerBtn(name, isPro) {
   if (!name || name === 'TBC') return `<div class="draw-player ${isPro?'pro':'am'}"><div class="draw-player-dot ${isPro?'pro':'am'}-dot"></div><div class="draw-player-name" style="color:var(--muted)">${name||'TBA'}</div></div>`;
   const bio = isPro ? PRO_BIOS[name] : AM_BIOS[name];
   if (bio) {
-    const esc = s => s.replace(/'/g,"\\'").replace(/"/g,'&quot;');
-    return `<div class="draw-player ${isPro?'pro':'am'} clickable" onclick="openBio(${JSON.stringify(name)},${JSON.stringify(isPro)})"><div class="draw-player-dot ${isPro?'pro':'am'}-dot"></div><div class="draw-player-name draw-player-link">${name}</div></div>`;
+    const safeName = name.replace(/'/g, "\\'");
+    return `<div class="draw-player ${isPro?'pro':'am'} clickable" onclick="openBio('${safeName}',${isPro})"><div class="draw-player-dot ${isPro?'pro':'am'}-dot"></div><div class="draw-player-name draw-player-link">${name}</div></div>`;
   }
   return `<div class="draw-player ${isPro?'pro':'am'}"><div class="draw-player-dot ${isPro?'pro':'am'}-dot"></div><div class="draw-player-name">${name}</div></div>`;
 }
@@ -1903,6 +1903,7 @@ document.getElementById('draw-grid').innerHTML = Object.entries(holeMap).map(([h
 }).join('');
 
 function openBio(name, isPro) {
+  isPro = (isPro === true || isPro === 'true');
   const bio = isPro ? PRO_BIOS[name] : AM_BIOS[name];
   if (!bio) return;
   const overlay = document.getElementById('bio-overlay');
